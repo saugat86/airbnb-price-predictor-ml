@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "d2bfc9c3-d185-4932-b4a4-633dc74c5cb5",
+		"name": "Airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4966298"
+	},
+	"item": [
+		{
+			"name": "PING",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/ping/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"ping",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airbnb with queries",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "42",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "link",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/airbnb?accommodates=3&neighbourhood=AKROPOLI&price_min=62&price_max=80&Entire\\ home/apt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"airbnb"
+					],
+					"query": [
+						{
+							"key": "accommodates",
+							"value": "3"
+						},
+						{
+							"key": "neighbourhood",
+							"value": "AKROPOLI"
+						},
+						{
+							"key": "price_min",
+							"value": "62"
+						},
+						{
+							"key": "price_max",
+							"value": "80"
+						},
+						{
+							"key": "Entire\\ home/apt",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airbnb by Id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "42",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "link",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/airbnb/242",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"airbnb",
+						"242"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Airbnb",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "42",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "link",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/airbnb/242",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"airbnb",
+						"242"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Airbnb",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Dist_Acropolis\": \"0.309351946\",\r\n        \"Dist_Syntagma\": \"0.612897077\",\r\n        \"accommodates\": \"3\",\r\n        \"availability_30\": \"0\",\r\n        \"availability_365\": \"314\",\r\n        \"availability_60\": \"28\",\r\n        \"availability_90\": \"53\",\r\n        \"bathrooms\": \"1\",\r\n        \"beds\": \"1\",\r\n        \"has_availability\": \"1\",\r\n        \"has_license\": \"1\",\r\n        \"host_has_profile_pic\": \"1\",\r\n        \"host_identity_verified\": \"1\",\r\n        \"host_is_superhost\": \"1\",\r\n        \"id\": \"242\",\r\n        \"instant_bookable\": \"1\",\r\n        \"maximum_minimum_nights\": \"2\",\r\n        \"maximum_nights\": \"1125\",\r\n        \"maximum_nights_avg_ntm\": \"1125\",\r\n        \"minimum_maximum_nights\": \"1125\",\r\n        \"minimum_nights\": \"2\",\r\n        \"minimum_nights_avg_ntm\": \"2\",\r\n        \"neighbourhood\": \"EMPORIKO TRIGONO-PLAKA\",\r\n        \"number_of_reviews\": \"335\",\r\n        \"price\": \"59\",\r\n        \"reviews_per_month\": \"3.86\",\r\n        \"room_type\": \"Entire home/apt\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/airbnb/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"airbnb",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predict Price for Airbnb",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"host_is_superhost\" : \"t\",\r\n\"host_has_profile_pic\" :    \"f\",\r\n\"host_identity_verified\" :\"t\"   ,\r\n\"neighbourhood_cleansed\" : \"ΚΟΥΚΑΚΙ\",\r\n\"property_type\" :   \"Entire rental unit\",\r\n\"room_type\" :   \"Entire home/apt\",\r\n\"accommodates\" : 3,\r\n\"bathrooms_text\" : \"'Half-bath\",\r\n\"beds\" :    13,\r\n\"minimum_nights\" :  4,\r\n\"maximum_nights\" :  4,\r\n\"maximum_minimum_nights\" : 4    ,\r\n\"minimum_maximum_nights\" :  4,\r\n\"maximum_nights_avg_ntm\" : 4,\r\n\"minimum_nights_avg_ntm\" :  4,\r\n\"has_availability\" :    \"t\",\r\n\"availability_30\" : 45,\r\n\"availability_60\" : 294,\r\n\"availability_90\" : 90,\r\n\"availability_365\" : 201,\r\n\"number_of_reviews\" : \"4\" ,\r\n\"instant_bookable\" :    \"f\",\r\n\"reviews_per_month\" :0.04,\r\n\"license\" : \"13589523\",\r\n\"latitude\" :37.986130,\r\n\"longitude\" : 23.739230}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/models",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"models"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
