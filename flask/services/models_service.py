@@ -7,7 +7,6 @@ import haversine as hs
 import pickle
 import xgboost as xgb
 
-
 def main(features):
     ### import controller
     dataset = pd.DataFrame([features], columns=features.keys())

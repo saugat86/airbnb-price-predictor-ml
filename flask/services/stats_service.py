@@ -59,10 +59,10 @@ def main():
     accommodates_price = price_based_on_accommodates()
     reviews_price = reviews()
     price_vs_area = price_based_on_area()
+    top_10_areas = top_10_areas_based_on_min_price()
     return {"stats": {"histogram_data": price_range, "pie_chart_data": rooms, "bar_char_data_1": acropilis_prices,
                       "bar_char_data_2": syntagma_prices, "bar_char_data_3": accommodates_price,
-                      "bar_char_data_4": reviews_price, "bar_char_data_5": price_vs_area}}
-
+                      "bar_char_data_4": reviews_price, "bar_char_data_5": price_vs_area, "top_10_areas": top_10_areas}}
 
 def price_categories() -> List:
     """
@@ -205,6 +205,25 @@ def price_based_on_area() -> List:
 
     list_to_return = []
     for index, row in s.iterrows():
+        list_to_return.append(
+            {"area": row['neighbourhood'],
+             "avg_price": row['price']
+             }
+        )
+    return list_to_return
+
+def top_10_areas_based_on_min_price() -> List:
+    """
+    Calculates top 10 areas based on minimum average price
+    """
+
+    airbnb_df = pd.read_csv(os.getcwd() + "/repo/airbnb.csv")
+
+    s = airbnb_df.groupby('neighbourhood', as_index=False)['price'].mean()
+    s_sorted = s.sort_values(by='price', ascending=True).head(10)
+
+    list_to_return = []
+    for index, row in s_sorted.iterrows():
         list_to_return.append(
             {"area": row['neighbourhood'],
              "avg_price": row['price']

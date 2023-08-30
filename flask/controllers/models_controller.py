@@ -1,5 +1,5 @@
 import json
-from tempfile import tempdir
+from tempfile import gettempdir
 from flask import Blueprint, jsonify, request
 from services import models_service
 from flask_httpauth import HTTPBasicAuth
@@ -20,7 +20,9 @@ def get_prediction():
     Get request to predict the price of an Airbnb. The license column needs 
     to be either empty or has a value.
     """
-    log_msg = f"Attempting to retrieve airbnb data from {request.remote_addr}"
+    # log_msg = f"Attempting to retrieve airbnb data from {request.remote_addr}"
+    logger.info(
+        f"Attempting to retrieve airbnb data from {request.remote_addr}")
     data = request.get_json()
     temp_dict = data.copy()
     del temp_dict['license']
@@ -29,7 +31,7 @@ def get_prediction():
         s = "Fill cells: "
         for k in keys:
             s += k
-            s += ", "
+            s += ","
         return s, 200
 
     prediction = models_service.main(data)
