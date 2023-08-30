@@ -228,6 +228,30 @@ const Stats = () => {
                 </div>
               </div>
            
+              <div className="chart-container">
+                <Title level={4}>Top 10 Areas with Lowest Average Price </Title>
+                <div className="chart-inner">
+                  <ResponsiveContainer>
+                    <BarChart
+                      data={statsData.top_10_areas}
+                      margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                      }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="area" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="avg_price" fill="#59e31e" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+           
     
          
         </>

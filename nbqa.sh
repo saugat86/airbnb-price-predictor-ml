@@ -1,1 +1,0 @@
-nbqa black data_science/*.ipynb

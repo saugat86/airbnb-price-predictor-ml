@@ -1,21 +1,27 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default [
   {
-    name: "Giannis Manousarids",
-    image: "https://avatars.githubusercontent.com/u/42667681?v=4",
+    name: "Saugat Tiwari",
+    image: "https://avatars.githubusercontent.com/u/49930854?v=4",
     description:
-      "Hi, I’m Giannis.",
+      "Hi, I’m Saugat.",
   },
   {
-    name: "Jenny Cobanaj",
-    image: "https://avatars.githubusercontent.com/u/112647046?v=4",
+    name: "Tej Pandey",
+    image: "https://avatars.githubusercontent.com/u/84609324?v=4",
     description:
-      "Hi, I’m Jenny.",
+      "Hi, I’m Tej.",
   },
   {
-    name: "Maria",
-    image: "https://avatars.githubusercontent.com/u/114348945?v=4",
+    name: "Ravi Gupta",
+    image: "https://avatars.githubusercontent.com/u/99005686?v=4",
     description:
-      "Hi, I’m Maria.",
+      "Hi, I’m Ravi.",
+  },
+  {
+    name: "Bishal Shrestha",
+    image: "https://avatars.githubusercontent.com/u/28428914?v=4",
+    description:
+      "Hi, I’m Bishal.",
   }
 ];
